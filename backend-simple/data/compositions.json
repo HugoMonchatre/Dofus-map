@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "dungeon_id": 1,
+    "party_size": 4,
+    "title": "Compo stuff terre classique",
+    "description": "Composition optimale pour 4 joueurs avec focus dégâts terre",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 1, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Focus dégâts terre", "equipment": "Set Bourbassingue" },
+      { "id": 2, "position": 2, "class_name": "Eniripsa", "role": "Support", "notes": "Soins et buff", "equipment": "Set Eau/Soin" },
+      { "id": 3, "position": 3, "class_name": "Panda", "role": "Tank", "notes": "Positionnement", "equipment": "Set Vitalité" },
+      { "id": 4, "position": 4, "class_name": "Cra", "role": "DPS", "notes": "Dégâts distance", "equipment": "Set Air/Feu" }
+    ]
+  },
+  {
+    "id": 2,
+    "dungeon_id": 1,
+    "party_size": 4,
+    "title": "Compo feu rapide",
+    "description": "Stratégie agressive avec focus feu pour 4 joueurs",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 5, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Full feu", "equipment": "Set Feu optimisé" },
+      { "id": 6, "position": 2, "class_name": "Féca", "role": "Tank", "notes": "Glyphes feu", "equipment": "Set Résistances" },
+      { "id": 7, "position": 3, "class_name": "Sadida", "role": "Support", "notes": "Invocs et buff", "equipment": "Set Invocations" },
+      { "id": 8, "position": 4, "class_name": "Cra", "role": "DPS", "notes": "Feu distance", "equipment": "Set Feu" }
+    ]
+  },
+  {
+    "id": 3,
+    "dungeon_id": 1,
+    "party_size": 5,
+    "title": "Compo équilibrée 5 joueurs",
+    "description": "Mix DPS et support pour 5 joueurs",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 9, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Multi-élément", "equipment": "Set Hybride" },
+      { "id": 10, "position": 2, "class_name": "Eniripsa", "role": "Support", "notes": "Soins principaux", "equipment": "Set Sagesse" },
+      { "id": 11, "position": 3, "class_name": "Panda", "role": "Tank", "notes": "Placement stratégique", "equipment": "Set Tank" },
+      { "id": 12, "position": 4, "class_name": "Cra", "role": "DPS", "notes": "Dégâts distance", "equipment": "Set Air" },
+      { "id": 13, "position": 5, "class_name": "Sram", "role": "DPS", "notes": "Burst damage", "equipment": "Set Crit" }
+    ]
+  },
+  {
+    "id": 4,
+    "dungeon_id": 1,
+    "party_size": 6,
+    "title": "Compo full stuff 200",
+    "description": "Composition pour joueurs niveau 200 bien équipés",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 14, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Stuff terre/feu", "equipment": "Set Crimson" },
+      { "id": 15, "position": 2, "class_name": "Eniripsa", "role": "Support", "notes": "Full sagesse", "equipment": "Set Soin optimisé" },
+      { "id": 16, "position": 3, "class_name": "Panda", "role": "Tank", "notes": "High vitalité", "equipment": "Set Tank" },
+      { "id": 17, "position": 4, "class_name": "Cra", "role": "DPS", "notes": "Multi-élément", "equipment": "Set hybride" },
+      { "id": 18, "position": 5, "class_name": "Sram", "role": "DPS", "notes": "Dégâts critiques", "equipment": "Set Crit" },
+      { "id": 19, "position": 6, "class_name": "Osamodas", "role": "Support", "notes": "Invocations", "equipment": "Set Invocs" }
+    ]
+  },
+  {
+    "id": 5,
+    "dungeon_id": 1,
+    "party_size": 6,
+    "title": "Compo stuff eau",
+    "description": "Focus élément eau pour 6 joueurs",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 20, "position": 1, "class_name": "Eniripsa", "role": "DPS/Support", "notes": "Eau offensif", "equipment": "Set Eau" },
+      { "id": 21, "position": 2, "class_name": "Sadida", "role": "Support", "notes": "Eau et invocs", "equipment": "Set Eau" },
+      { "id": 22, "position": 3, "class_name": "Féca", "role": "Tank", "notes": "Glyphes eau", "equipment": "Set Tank Eau" },
+      { "id": 23, "position": 4, "class_name": "Pandawa", "role": "Support", "notes": "Placement", "equipment": "Set Vitalité" },
+      { "id": 24, "position": 5, "class_name": "Zobal", "role": "Tank/DPS", "notes": "Masques eau", "equipment": "Set Eau/Tank" },
+      { "id": 25, "position": 6, "class_name": "Osamodas", "role": "Support", "notes": "Buffs eau", "equipment": "Set Support" }
+    ]
+  },
+  {
+    "id": 6,
+    "dungeon_id": 1,
+    "party_size": 7,
+    "title": "Compo optimale 7 joueurs",
+    "description": "Équipe complète pour donjon difficile",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 26, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Main DPS", "equipment": "Set Optimisé" },
+      { "id": 27, "position": 2, "class_name": "Cra", "role": "DPS", "notes": "Distance", "equipment": "Set Multi" },
+      { "id": 28, "position": 3, "class_name": "Eniripsa", "role": "Support", "notes": "Soins", "equipment": "Set Sagesse" },
+      { "id": 29, "position": 4, "class_name": "Panda", "role": "Tank", "notes": "Tank principal", "equipment": "Set Tank" },
+      { "id": 30, "position": 5, "class_name": "Féca", "role": "Tank", "notes": "Glyphes", "equipment": "Set Résistances" },
+      { "id": 31, "position": 6, "class_name": "Sram", "role": "DPS", "notes": "Burst", "equipment": "Set Crit" },
+      { "id": 32, "position": 7, "class_name": "Sadida", "role": "Support", "notes": "Invocs/Buff", "equipment": "Set Support" }
+    ]
+  },
+  {
+    "id": 7,
+    "dungeon_id": 1,
+    "party_size": 8,
+    "title": "Compo raid complète",
+    "description": "Configuration pour 8 joueurs en raid",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 33, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Main DPS", "equipment": "Set Top" },
+      { "id": 34, "position": 2, "class_name": "Cra", "role": "DPS", "notes": "Distance DPS", "equipment": "Set Multi" },
+      { "id": 35, "position": 3, "class_name": "Sram", "role": "DPS", "notes": "Burst DPS", "equipment": "Set Crit" },
+      { "id": 36, "position": 4, "class_name": "Eniripsa", "role": "Support", "notes": "Soins", "equipment": "Set Sagesse" },
+      { "id": 37, "position": 5, "class_name": "Sadida", "role": "Support", "notes": "Buff/Invocs", "equipment": "Set Support" },
+      { "id": 38, "position": 6, "class_name": "Panda", "role": "Tank", "notes": "Tank principal", "equipment": "Set Tank" },
+      { "id": 39, "position": 7, "class_name": "Féca", "role": "Tank", "notes": "Tank secondaire", "equipment": "Set Résist" },
+      { "id": 40, "position": 8, "class_name": "Osamodas", "role": "Support", "notes": "Utility", "equipment": "Set Invocs" }
+    ]
+  },
+  {
+    "id": 8,
+    "dungeon_id": 2,
+    "party_size": 4,
+    "title": "Compo niveau 80-100",
+    "description": "Composition accessible pour joueurs niveau 80-100",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 41, "position": 1, "class_name": "Féca", "role": "Tank", "notes": "Protection", "equipment": "Set défensif 80" },
+      { "id": 42, "position": 2, "class_name": "Eniripsa", "role": "Support", "notes": "Soins", "equipment": "Set Eau 80" },
+      { "id": 43, "position": 3, "class_name": "Iop", "role": "DPS", "notes": "Dégâts", "equipment": "Set attaque 80" },
+      { "id": 44, "position": 4, "class_name": "Sacrieur", "role": "DPS/Tank", "notes": "Hybride", "equipment": "Set hybride 80" }
+    ]
+  },
+  {
+    "id": 9,
+    "dungeon_id": 2,
+    "party_size": 5,
+    "title": "Compo intermédiaire 5j",
+    "description": "Pour niveau 80-100 avec 5 joueurs",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 45, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Main damage", "equipment": "Set 80" },
+      { "id": 46, "position": 2, "class_name": "Cra", "role": "DPS", "notes": "Distance", "equipment": "Set 80" },
+      { "id": 47, "position": 3, "class_name": "Eniripsa", "role": "Support", "notes": "Soins", "equipment": "Set Eau 80" },
+      { "id": 48, "position": 4, "class_name": "Féca", "role": "Tank", "notes": "Protection", "equipment": "Set Tank 80" },
+      { "id": 49, "position": 5, "class_name": "Sadida", "role": "Support", "notes": "Support", "equipment": "Set 80" }
+    ]
+  },
+  {
+    "id": 10,
+    "dungeon_id": 3,
+    "party_size": 4,
+    "title": "Compo débutant niveau 40",
+    "description": "Première composition pour donjons bas niveau",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 50, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "N'importe quel élément", "equipment": "Sets niveau 40" },
+      { "id": 51, "position": 2, "class_name": "Eniripsa", "role": "Support", "notes": "Soins basiques", "equipment": "Sets niveau 40" },
+      { "id": 52, "position": 3, "class_name": "Cra", "role": "DPS", "notes": "Distance", "equipment": "Sets niveau 40" },
+      { "id": 53, "position": 4, "class_name": "Féca", "role": "Tank", "notes": "Protection", "equipment": "Sets niveau 40" }
+    ]
+  },
+  {
+    "id": 11,
+    "dungeon_id": 3,
+    "party_size": 5,
+    "title": "Compo débutant 5 joueurs",
+    "description": "Pour débuter à 5 joueurs niveau 40",
+    "youtube_url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "details": [
+      { "id": 54, "position": 1, "class_name": "Iop", "role": "DPS", "notes": "Attaque", "equipment": "Set 40" },
+      { "id": 55, "position": 2, "class_name": "Cra", "role": "DPS", "notes": "Distance", "equipment": "Set 40" },
+      { "id": 56, "position": 3, "class_name": "Eniripsa", "role": "Support", "notes": "Soins", "equipment": "Set 40" },
+      { "id": 57, "position": 4, "class_name": "Féca", "role": "Tank", "notes": "Tank", "equipment": "Set 40" },
+      { "id": 58, "position": 5, "class_name": "Sadida", "role": "Support", "notes": "Support", "equipment": "Set 40" }
+    ]
+  }
+]
