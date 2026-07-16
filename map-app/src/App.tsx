@@ -6,13 +6,16 @@ import { MapCanvas } from './components/MapCanvas'
 import { DungeonModal } from './components/DungeonModal'
 import { DungeonFilter } from './components/DungeonFilter'
 import { CompositionDetail } from './components/CompositionDetail'
-import { DUNGEONS, LEVEL_RANGES } from './constants'
+import { DUNGEONS, LEVEL_RANGES, GAME_MAPS, type GameMap } from './constants'
 
 function App() {
   const [selectedDungeon, setSelectedDungeon] = useState<Dungeon | null>(null)
   const [dungeonForModal, setDungeonForModal] = useState<Dungeon | null>(null)
   const [selectedLevelRange, setSelectedLevelRange] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
+  const [showGrid, setShowGrid] = useState(true)
+  const [showZones, setShowZones] = useState(true)
+  const [selectedMap, setSelectedMap] = useState<GameMap>(GAME_MAPS[0])
 
   // Filtrer les donjons par plage de niveau et recherche
   const filteredDungeons = useMemo(() => {
@@ -77,11 +80,56 @@ function App() {
                 onSearchChange={handleSearchChange}
               />
               <div style={{ position: 'relative', display: 'inline-block', padding: '20px' }}>
+                <div style={{ marginBottom: '10px', display: 'flex', gap: '20px', alignItems: 'center' }}>
+                  <div>
+                    <label style={{ marginRight: '8px' }}>Map:</label>
+                    <select
+                      value={selectedMap.id}
+                      onChange={(e) => {
+                        const map = GAME_MAPS.find((m) => m.id === e.target.value)
+                        if (map) setSelectedMap(map)
+                      }}
+                      style={{
+                        padding: '4px 8px',
+                        borderRadius: '4px',
+                        border: '1px solid #ccc',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      {GAME_MAPS.map((map) => (
+                        <option key={map.id} value={map.id}>
+                          {map.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <label style={{ cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={showGrid}
+                      onChange={(e) => setShowGrid(e.target.checked)}
+                      style={{ marginRight: '8px' }}
+                    />
+                    Afficher la grille
+                  </label>
+                  <label style={{ cursor: 'pointer', userSelect: 'none' }}>
+                    <input
+                      type="checkbox"
+                      checked={showZones}
+                      onChange={(e) => setShowZones(e.target.checked)}
+                      style={{ marginRight: '8px' }}
+                    />
+                    Afficher les zones
+                  </label>
+                </div>
                 <MapCanvas
                   onDungeonClick={handleDungeonClick}
                   selectedDungeon={selectedDungeon}
                   onDungeonDeselect={handleDungeonDeselect}
                   filteredDungeons={filteredDungeons}
+                  showGrid={showGrid}
+                  showZones={showZones}
+                  gameMap={selectedMap}
                 />
               </div>
             </div>

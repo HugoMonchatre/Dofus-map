@@ -1,5 +1,0 @@
-[
-  { "id": 1, "name": "Antre de la Reine Nyée", "level": 90, "coord": { "x": -6, "y": -15 } },
-  { "id": 2, "name": "Cimetière des Mastodontes", "level": 80, "coord": { "x": 19, "y": -61 } },
-  { "id": 3, "name": "Akadémie des Gobs", "level": 40, "coord": { "x": -5, "y": 3 } }
-]

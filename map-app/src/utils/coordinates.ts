@@ -1,27 +1,35 @@
 import type { Coordinates, CanvasCoordinates, Dungeon } from '../types'
-import { WORLD_BOUNDS, GRID_COLS, GRID_ROWS } from '../constants'
+
+interface WorldBounds {
+  minX: number
+  maxX: number
+  minY: number
+  maxY: number
+}
 
 export const worldToCanvas = (
   worldCoords: Coordinates,
   canvasWidth: number,
-  canvasHeight: number
+  canvasHeight: number,
+  worldBounds: WorldBounds
 ): CanvasCoordinates => {
   const x =
-    ((worldCoords.x - WORLD_BOUNDS.minX) / (WORLD_BOUNDS.maxX - WORLD_BOUNDS.minX)) * canvasWidth
+    ((worldCoords.x - worldBounds.minX) / (worldBounds.maxX - worldBounds.minX)) * canvasWidth
   const y =
-    ((worldCoords.y - WORLD_BOUNDS.minY) / (WORLD_BOUNDS.maxY - WORLD_BOUNDS.minY)) * canvasHeight
+    ((worldCoords.y - worldBounds.minY) / (worldBounds.maxY - worldBounds.minY)) * canvasHeight
   return { x, y }
 }
 
 export const canvasToWorld = (
   canvasCoords: CanvasCoordinates,
   canvasWidth: number,
-  canvasHeight: number
+  canvasHeight: number,
+  worldBounds: WorldBounds
 ): Coordinates => {
   const x =
-    (canvasCoords.x / canvasWidth) * (WORLD_BOUNDS.maxX - WORLD_BOUNDS.minX) + WORLD_BOUNDS.minX
+    (canvasCoords.x / canvasWidth) * (worldBounds.maxX - worldBounds.minX) + worldBounds.minX
   const y =
-    (canvasCoords.y / canvasHeight) * (WORLD_BOUNDS.maxY - WORLD_BOUNDS.minY) + WORLD_BOUNDS.minY
+    (canvasCoords.y / canvasHeight) * (worldBounds.maxY - worldBounds.minY) + worldBounds.minY
   return { x: Math.round(x), y: Math.round(y) }
 }
 
@@ -31,13 +39,16 @@ export const findDungeonAt = (
   imgW: number,
   imgH: number,
   dungeons: Dungeon[],
-  dungeonIconSize: number = 1
+  dungeonIconSize: number = 1,
+  gridCols: number = 143,
+  gridRows: number = 160,
+  worldBounds: WorldBounds = { minX: -94, maxX: 50, minY: -100, maxY: 61 }
 ): Dungeon | undefined => {
-  const gridStepX = imgW / GRID_COLS
-  const gridStepY = imgH / GRID_ROWS
+  const gridStepX = imgW / gridCols
+  const gridStepY = imgH / gridRows
 
   return dungeons.find((dungeon) => {
-    const imageCoord = worldToCanvas(dungeon.coord, imgW, imgH)
+    const imageCoord = worldToCanvas(dungeon.coord, imgW, imgH, worldBounds)
     const cellX = Math.floor(imageCoord.x / gridStepX) * gridStepX
     const cellY = Math.floor(imageCoord.y / gridStepY) * gridStepY
     const iconWidth = gridStepX * dungeonIconSize
