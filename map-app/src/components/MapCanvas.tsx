@@ -503,6 +503,9 @@ export const MapCanvas: FC<MapCanvasProps> = ({
         const mx = mouseWorld.x
         const my = mouseWorld.y
 
+        // Vérifier d'abord les cellules isolées
+        if (zone.isolatedCells?.some((c) => c.x === mx && c.y === my)) return true
+
         // Cas spécial: ligne (2 points)
         if (zone.points.length === 2) {
           const p1 = zone.points[0]
@@ -553,9 +556,6 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
         // Vérifier si la cellule est exactement sur un sommet
         if (points.some((p) => p.x === mx && p.y === my)) return true
-
-        // Vérifier si la cellule est une cellule isolée
-        if (zone.isolatedCells?.some((c) => c.x === mx && c.y === my)) return true
 
         return false
       })
