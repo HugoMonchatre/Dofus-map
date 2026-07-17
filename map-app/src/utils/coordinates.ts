@@ -24,13 +24,15 @@ export const canvasToWorld = (
   canvasCoords: CanvasCoordinates,
   canvasWidth: number,
   canvasHeight: number,
-  worldBounds: WorldBounds
+  worldBounds: WorldBounds,
+  gridCols?: number,
+  gridRows?: number
 ): Coordinates => {
-  const x =
-    (canvasCoords.x / canvasWidth) * (worldBounds.maxX - worldBounds.minX) + worldBounds.minX
-  const y =
-    (canvasCoords.y / canvasHeight) * (worldBounds.maxY - worldBounds.minY) + worldBounds.minY
-  return { x: Math.round(x), y: Math.round(y) }
+  const cols = gridCols ?? (worldBounds.maxX - worldBounds.minX)
+  const rows = gridRows ?? (worldBounds.maxY - worldBounds.minY)
+  const cellX = Math.floor(canvasCoords.x / (canvasWidth / cols))
+  const cellY = Math.floor(canvasCoords.y / (canvasHeight / rows))
+  return { x: cellX + worldBounds.minX, y: cellY + worldBounds.minY }
 }
 
 export const findDungeonAt = (

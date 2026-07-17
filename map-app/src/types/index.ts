@@ -13,4 +13,5 @@ export interface Dungeon {
   name: string
   level: number
   coord: Coordinates
+  mapId?: string // 'main' par défaut, ou 'incarnam', 'enutrosor', etc.
 }

@@ -3,8 +3,6 @@ import type { Coordinates, CanvasCoordinates, Dungeon } from '../types'
 import { worldToCanvas, canvasToWorld, findDungeonAt } from '../utils/coordinates'
 import {
   COORD_STEP,
-  CANVAS_WIDTH,
-  CANVAS_HEIGHT,
   DUNGEON_ICON_SIZE,
   type GameMap,
 } from '../constants'
@@ -131,88 +129,112 @@ export const MapCanvas: FC<MapCanvasProps> = ({
     // Dessiner les zones (approche basée sur les cellules)
     if (showZones && gameMap.zones && gameMap.zones.length > 0) {
       gameMap.zones.forEach((zone) => {
-        if (zone.points.length < 3) return
+        const cellsInZone = new Set<string>()
 
-        const points = zone.points
+        // Cas spécial: ligne (2 points)
+        if (zone.points.length === 2) {
+          const p1 = zone.points[0]
+          const p2 = zone.points[1]
 
-        // Étape 1: Collecter les cellules de bordure (sur les arêtes H/V explicites)
-        const boundaryCells = new Set<string>()
-
-        // Ajouter les cellules sur les arêtes horizontales et verticales du polygone
-        for (let i = 0; i < points.length; i++) {
-          const p1 = points[i]
-          const p2 = points[(i + 1) % points.length]
-
-          // Arête horizontale
+          // Ligne horizontale
           if (p1.y === p2.y) {
             const minX = Math.min(p1.x, p2.x)
             const maxX = Math.max(p1.x, p2.x)
             for (let x = minX; x <= maxX; x++) {
-              boundaryCells.add(`${x},${p1.y}`)
+              cellsInZone.add(`${x},${p1.y}`)
             }
           }
-          // Arête verticale
+          // Ligne verticale
           else if (p1.x === p2.x) {
             const minY = Math.min(p1.y, p2.y)
             const maxY = Math.max(p1.y, p2.y)
             for (let y = minY; y <= maxY; y++) {
-              boundaryCells.add(`${p1.x},${y}`)
+              cellsInZone.add(`${p1.x},${y}`)
             }
           }
-          // Diagonale: on ajoute juste les deux sommets
-          else {
-            boundaryCells.add(`${p1.x},${p1.y}`)
-            boundaryCells.add(`${p2.x},${p2.y}`)
-          }
-        }
+        } else if (zone.points.length >= 3) {
+          // Polygone normal
+          const points = zone.points
 
-        // Étape 2: Scanline fill avec TOUTES les arêtes (y compris diagonales)
-        const cellsInZone = new Set<string>(boundaryCells)
+          // Étape 1: Collecter les cellules de bordure (sur les arêtes H/V explicites)
+          const boundaryCells = new Set<string>()
 
-        const minY = Math.min(...points.map((p) => p.y))
-        const maxY = Math.max(...points.map((p) => p.y))
-
-        for (let y = minY; y <= maxY; y++) {
-          // Trouver toutes les intersections des arêtes avec ce niveau y
-          const xIntersections: number[] = []
-
+          // Ajouter les cellules sur les arêtes horizontales et verticales du polygone
           for (let i = 0; i < points.length; i++) {
             const p1 = points[i]
             const p2 = points[(i + 1) % points.length]
 
-            // Arête horizontale: pas d'intersection pour le scanline
-            if (p1.y === p2.y) continue
-
-            const yMin = Math.min(p1.y, p2.y)
-            const yMax = Math.max(p1.y, p2.y)
-
-            // Vérifier si cette arête traverse ce niveau y (intervalle semi-ouvert)
-            if (y >= yMin && y < yMax) {
-              // Calculer l'intersection x
-              if (p1.x === p2.x) {
-                // Arête verticale
-                xIntersections.push(p1.x)
-              } else {
-                // Arête diagonale: interpolation linéaire
-                const t = (y - p1.y) / (p2.y - p1.y)
-                const xIntersect = p1.x + t * (p2.x - p1.x)
-                xIntersections.push(xIntersect)
+            // Arête horizontale
+            if (p1.y === p2.y) {
+              const minX = Math.min(p1.x, p2.x)
+              const maxX = Math.max(p1.x, p2.x)
+              for (let x = minX; x <= maxX; x++) {
+                boundaryCells.add(`${x},${p1.y}`)
               }
+            }
+            // Arête verticale
+            else if (p1.x === p2.x) {
+              const minY = Math.min(p1.y, p2.y)
+              const maxY = Math.max(p1.y, p2.y)
+              for (let y = minY; y <= maxY; y++) {
+                boundaryCells.add(`${p1.x},${y}`)
+              }
+            }
+            // Diagonale: on ajoute juste les deux sommets
+            else {
+              boundaryCells.add(`${p1.x},${p1.y}`)
+              boundaryCells.add(`${p2.x},${p2.y}`)
             }
           }
 
-          // Trier les intersections et remplir entre les paires
-          xIntersections.sort((a, b) => a - b)
+          // Étape 2: Scanline fill avec TOUTES les arêtes (y compris diagonales)
+          boundaryCells.forEach((cell) => cellsInZone.add(cell))
 
-          for (let i = 0; i < xIntersections.length; i += 2) {
-            const x1 = xIntersections[i]
-            const x2 = xIntersections[i + 1]
-            if (x2 !== undefined) {
-              // Remplir les cellules entières entre les intersections
-              const startX = Math.ceil(x1)
-              const endX = Math.floor(x2)
-              for (let x = startX; x <= endX; x++) {
-                cellsInZone.add(`${x},${y}`)
+          const minY = Math.min(...points.map((p) => p.y))
+          const maxY = Math.max(...points.map((p) => p.y))
+
+          for (let y = minY; y <= maxY; y++) {
+            // Trouver toutes les intersections des arêtes avec ce niveau y
+            const xIntersections: number[] = []
+
+            for (let i = 0; i < points.length; i++) {
+              const p1 = points[i]
+              const p2 = points[(i + 1) % points.length]
+
+              // Arête horizontale: pas d'intersection pour le scanline
+              if (p1.y === p2.y) continue
+
+              const yMin = Math.min(p1.y, p2.y)
+              const yMax = Math.max(p1.y, p2.y)
+
+              // Vérifier si cette arête traverse ce niveau y (intervalle semi-ouvert)
+              if (y >= yMin && y < yMax) {
+                // Calculer l'intersection x
+                if (p1.x === p2.x) {
+                  // Arête verticale
+                  xIntersections.push(p1.x)
+                } else {
+                  // Arête diagonale: interpolation linéaire
+                  const t = (y - p1.y) / (p2.y - p1.y)
+                  const xIntersect = p1.x + t * (p2.x - p1.x)
+                  xIntersections.push(xIntersect)
+                }
+              }
+            }
+
+            // Trier les intersections et remplir entre les paires
+            xIntersections.sort((a, b) => a - b)
+
+            for (let i = 0; i < xIntersections.length; i += 2) {
+              const x1 = xIntersections[i]
+              const x2 = xIntersections[i + 1]
+              if (x2 !== undefined) {
+                // Remplir les cellules entières entre les intersections
+                const startX = Math.ceil(x1)
+                const endX = Math.floor(x2)
+                for (let x = startX; x <= endX; x++) {
+                  cellsInZone.add(`${x},${y}`)
+                }
               }
             }
           }
@@ -478,11 +500,32 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
       // Trouver la zone survolée (même logique que le rendu)
       const hoveredZone = gameMap.zones.find((zone) => {
+        const mx = mouseWorld.x
+        const my = mouseWorld.y
+
+        // Cas spécial: ligne (2 points)
+        if (zone.points.length === 2) {
+          const p1 = zone.points[0]
+          const p2 = zone.points[1]
+
+          // Ligne horizontale
+          if (p1.y === p2.y && my === p1.y) {
+            const minX = Math.min(p1.x, p2.x)
+            const maxX = Math.max(p1.x, p2.x)
+            if (mx >= minX && mx <= maxX) return true
+          }
+          // Ligne verticale
+          else if (p1.x === p2.x && mx === p1.x) {
+            const minY = Math.min(p1.y, p2.y)
+            const maxY = Math.max(p1.y, p2.y)
+            if (my >= minY && my <= maxY) return true
+          }
+          return false
+        }
+
         if (zone.points.length < 3) return false
 
         const points = zone.points
-        const mx = mouseWorld.x
-        const my = mouseWorld.y
 
         // Vérifier si le centre de la cellule survolée est dans le polygone
         if (isPointInPolygon(mx + 0.5, my + 0.5, points)) {
@@ -574,7 +617,7 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
     const imageX = cameraX + mouseX / scaleX
     const imageY = cameraY + mouseY / scaleY
-    setMouseWorld(canvasToWorld({ x: imageX, y: imageY }, imgW, imgH, gameMap.worldBounds))
+    setMouseWorld(canvasToWorld({ x: imageX, y: imageY }, imgW, imgH, gameMap.worldBounds, gameMap.gridCols, gameMap.gridRows))
     setMouseImage({ x: imageX, y: imageY })
 
     if (!isMouseDown || zoom === 1) return
@@ -655,7 +698,7 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
       const zoomFactor = 0.2
       const direction = e.deltaY > 0 ? -1 : 1
-      const newZoom = Math.max(1, Math.min(5, zoom + direction * zoomFactor))
+      const newZoom = Math.max(gameMap.minZoom, Math.min(gameMap.maxZoom, zoom + direction * zoomFactor))
 
       const newSourceWidth = imgW / newZoom
       const newSourceHeight = imgH / newZoom
@@ -675,7 +718,7 @@ export const MapCanvas: FC<MapCanvasProps> = ({
       setCameraX(newCameraX)
       setCameraY(newCameraY)
     },
-    [image, zoom, cameraX, cameraY]
+    [image, zoom, cameraX, cameraY, gameMap]
   )
 
   useEffect(() => {
@@ -692,8 +735,8 @@ export const MapCanvas: FC<MapCanvasProps> = ({
     <div>
       <canvas
         ref={canvasRef}
-        width={CANVAS_WIDTH}
-        height={CANVAS_HEIGHT}
+        width={gameMap.canvasWidth}
+        height={gameMap.canvasHeight}
         onClick={handleCanvasClick}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}

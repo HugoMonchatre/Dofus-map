@@ -17,9 +17,10 @@ function App() {
   const [showZones, setShowZones] = useState(true)
   const [selectedMap, setSelectedMap] = useState<GameMap>(GAME_MAPS[0])
 
-  // Filtrer les donjons par plage de niveau et recherche
+  // Filtrer les donjons par map, plage de niveau et recherche
   const filteredDungeons = useMemo(() => {
-    let filtered = DUNGEONS
+    // Filtrer par map (si pas de mapId, c'est 'main' par défaut)
+    let filtered = DUNGEONS.filter((d) => (d.mapId || 'main') === selectedMap.id)
 
     // Filtrer par plage de niveau
     if (selectedLevelRange) {
@@ -35,7 +36,7 @@ function App() {
     }
 
     return filtered
-  }, [selectedLevelRange, searchQuery])
+  }, [selectedLevelRange, searchQuery, selectedMap.id])
 
   const handleLevelRangeSelect = (range: string | null) => {
     setSelectedLevelRange(range)
@@ -46,6 +47,14 @@ function App() {
   }
 
   const handleDungeonSelect = (dungeon: Dungeon) => {
+    // Changer de map si le donjon est dans une autre dimension
+    const dungeonMapId = dungeon.mapId || 'main'
+    if (dungeonMapId !== selectedMap.id) {
+      const targetMap = GAME_MAPS.find((m) => m.id === dungeonMapId)
+      if (targetMap) {
+        setSelectedMap(targetMap)
+      }
+    }
     setSelectedDungeon(dungeon)
   }
 

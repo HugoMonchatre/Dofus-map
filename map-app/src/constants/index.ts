@@ -3,9 +3,11 @@ import {
   MAIN_WORLD_ZONES,
   INCARNAM_ZONES,
   ENUTROSOR_ZONES,
+  OSAVORA_ZONES,
   SRAMBAD_ZONES,
   XELORIUM_ZONES,
   ECAFLIPUS_ZONES,
+  CAUCHEMAR_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -22,22 +24,8 @@ export const LEVEL_RANGES: LevelRange[] = [
   { label: 'Niveau 191 - 200', min: 191, max: 200 },
 ]
 
-export const WORLD_BOUNDS = {
-  minX: -93,
-  maxX: 50,
-  minY: -100,
-  maxY: 61,
-}
-
-export const GRID_COLS = 142
-export const GRID_ROWS = 160
 export const COORD_STEP = 10
 export const ZOOM_FACTOR = 0.2
-export const MIN_ZOOM = 1
-export const MAX_ZOOM = 6
-
-export const CANVAS_WIDTH = 1200
-export const CANVAS_HEIGHT = 1000
 
 export const DUNGEON_ICON_SIZE = 1.5 // Taille de l'icône en cellules de grille
 
@@ -62,6 +50,10 @@ export interface GameMap {
     minY: number
     maxY: number
   }
+  minZoom: number
+  maxZoom: number
+  canvasWidth: number
+  canvasHeight: number
   zones?: Zone[] // Zones optionnelles pour chaque map
 }
 
@@ -73,25 +65,50 @@ export const GAME_MAPS: GameMap[] = [
     gridCols: 142,
     gridRows: 160,
     worldBounds: { minX: -93, maxX: 50, minY: -100, maxY: 61 },
+    minZoom: 1,
+    maxZoom: 6,
+    canvasWidth: 1200,
+    canvasHeight: 1000,
     zones: MAIN_WORLD_ZONES,
   },
   {
     id: 'incarnam',
     name: 'Incarnam',
     image: '/incarnam.png',
-    gridCols: 30,
-    gridRows: 30,
-    worldBounds: { minX: 0, maxX: 15, minY: -5, maxY: 10 },
+    gridCols: 13,
+    gridRows: 16,
+    worldBounds: { minX: -5, maxX: 7, minY: -8, maxY: 7 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 800,
+    canvasHeight: 700,
     zones: INCARNAM_ZONES,
   },
   {
     id: 'enutrosor',
     name: 'Dimension Enutrosor',
     image: '/enutrosor.png',
-    gridCols: 50,
-    gridRows: 50,
-    worldBounds: { minX: -20, maxX: 20, minY: -20, maxY: 20 },
+    gridCols: 20,
+    gridRows: 17,
+    worldBounds: { minX: -13, maxX: 6, minY: -13, maxY: 3 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1300,
+    canvasHeight: 850,
     zones: ENUTROSOR_ZONES,
+  },
+  {
+    id: 'osavora',
+    name: 'Dimension Osavora',
+    image: '/osavora.png',
+    gridCols: 42,
+    gridRows: 53,
+    worldBounds: { minX: -8, maxX: 34, minY: -13, maxY: 40 },
+    minZoom: 1,
+    maxZoom: 4,
+    canvasWidth: 1000,
+    canvasHeight: 950,
+    zones: OSAVORA_ZONES,
   },
   {
     id: 'srambad',
@@ -100,6 +117,10 @@ export const GAME_MAPS: GameMap[] = [
     gridCols: 50,
     gridRows: 50,
     worldBounds: { minX: -20, maxX: 20, minY: -20, maxY: 20 },
+    minZoom: 1,
+    maxZoom: 4,
+    canvasWidth: 1000,
+    canvasHeight: 1000,
     zones: SRAMBAD_ZONES,
   },
   {
@@ -109,6 +130,10 @@ export const GAME_MAPS: GameMap[] = [
     gridCols: 50,
     gridRows: 50,
     worldBounds: { minX: -20, maxX: 20, minY: -20, maxY: 20 },
+    minZoom: 1,
+    maxZoom: 4,
+    canvasWidth: 1000,
+    canvasHeight: 1000,
     zones: XELORIUM_ZONES,
   },
   {
@@ -118,7 +143,24 @@ export const GAME_MAPS: GameMap[] = [
     gridCols: 50,
     gridRows: 50,
     worldBounds: { minX: -20, maxX: 20, minY: -20, maxY: 20 },
+    minZoom: 1,
+    maxZoom: 4,
+    canvasWidth: 1000,
+    canvasHeight: 1000,
     zones: ECAFLIPUS_ZONES,
+  },
+  {
+    id: 'cauchemar',
+    name: 'Cauchemar',
+    image: '/cauchemar.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -3, maxX: 7, minY: -3, maxY: 8 },
+    minZoom: 1,
+    maxZoom: 3,
+    canvasWidth: 1000,
+    canvasHeight: 800,
+    zones: CAUCHEMAR_ZONES,
   },
 ]
 
@@ -232,4 +274,21 @@ export const DUNGEONS: Dungeon[] = [
   { id: 80, name: 'Manoir des Katrepat', level: 200, coord: { x: -14, y: 25 } },
   { id: 81, name: 'Brasserie du roi Dazak', level: 200, coord: { x: -62, y: -70 } },
   { id: 82, name: 'Rituel de Kabahal', level: 200, coord: { x: 43, y: -57 } },
+
+  //incarnam
+  { id: 83, name: 'Crypte de Kardorim', level: 10, coord: { x: 5, y: -1 }, mapId: 'incarnam' },
+
+  //enutrosor
+  { id: 83, name: 'Fabrique de Malléfisk', level: 100, coord: { x: -6, y: -2 }, mapId: 'enutrosor' },
+  { id: 83, name: 'Galerie du phossile', level: 150, coord: { x: -5, y: -5 }, mapId: 'enutrosor' },
+  { id: 83, name: 'Palais du roi Nidas', level: 200, coord: { x: -2, y: -3 }, mapId: 'enutrosor' },
+
+  //cauchemar
+  { id: 83, name: 'Bataille de l\'Aurore Pourpre', level: 200, coord: { x: 1, y: 0 }, mapId: 'cauchemar' },
+
+  //osavora
+  { id: 83, name: 'Poste de contrôle du Supervizoeuf', level: 170, coord: { x: 24, y: 23 }, mapId: 'osavora' },
+  { id: 83, name: 'Breuil du Vénérable', level: 200, coord: { x: 6, y: 9 }, mapId: 'osavora' },
+  { id: 83, name: 'Autel de la Déchireuse', level: 200, coord: { x: 12, y: 2 }, mapId: 'osavora' },
+  { id: 83, name: 'Gargandyas', level: 200, coord: { x: 17, y: 8 }, mapId: 'osavora' },
 ]
