@@ -593,6 +593,30 @@ export const XELORIUM_ZONES: Zone[] = [
 // Zones de la Dimension Ecaflipus
 export const ECAFLIPUS_ZONES: Zone[] = []
 
+// Zones des Canaux Méphitiques
+export const CANAUX_MEPHITIQUES_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Bonta (Canaux Méphitiques)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -34, y: -59 },
+      { x: -34, y: -58 },
+      { x: -31, y: -58 },
+      { x: -31, y: -54 },
+      { x: -33, y: -54 },
+      { x: -33, y: -53 },
+    ],
+    isolatedCells: [
+      { x: -30, y: -55 },  // cellule isolée
+    ],
+    excludedCells: [
+      [{ x: -32, y: -57 }],  // case vide au milieu
+    ],
+  },
+]
+
 // Zones de la Dimension Cauchemar
 export const CAUCHEMAR_ZONES: Zone[] = [
     {

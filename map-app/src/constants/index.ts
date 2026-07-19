@@ -8,6 +8,7 @@ import {
   XELORIUM_ZONES,
   ECAFLIPUS_ZONES,
   CAUCHEMAR_ZONES,
+  CANAUX_MEPHITIQUES_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -36,6 +37,7 @@ export interface Zone {
   borderColor?: string // Couleur de bordure optionnelle
   points: { x: number; y: number }[] // Coordonnées du polygone en coordonnées monde
   isolatedCells?: { x: number; y: number }[] // Cellules isolées non reliées au polygone
+  excludedCells?: { x: number; y: number }[][] // Trous: formes à exclure (même règles que `points` — 1 point = case, 2 = ligne, 3+ = polygone rempli)
 }
 
 export interface GameMap {
@@ -55,6 +57,8 @@ export interface GameMap {
   canvasWidth: number
   canvasHeight: number
   zones?: Zone[] // Zones optionnelles pour chaque map
+  gridOffsetX?: number // Décalage visuel des lignes de grille, en fraction de case (0-1). N'affecte QUE le rendu des lignes, pas les coordonnées/zones/donjons
+  gridOffsetY?: number // Décalage visuel des lignes de grille, en fraction de case (0-1). N'affecte QUE le rendu des lignes, pas les coordonnées/zones/donjons
 }
 
 export const GAME_MAPS: GameMap[] = [
@@ -162,6 +166,33 @@ export const GAME_MAPS: GameMap[] = [
     canvasHeight: 800,
     zones: CAUCHEMAR_ZONES,
   },
+  {
+    id: 'canaux-mephitiques',
+    name: 'Canaux Méphitiques',
+    image: '/Canaux-Méphitiques.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -38, maxX: -28, minY: -61, maxY: -50 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 750,
+    zones: CANAUX_MEPHITIQUES_ZONES,
+  },
+  {
+    id: 'caverne-des-fungus',
+    name: 'Caverne des Fungus',
+    image: '/Caverne-des-Fungus.png',
+    gridCols: 10,
+    gridRows: 11,
+    worldBounds: { minX: -16, maxX: -6, minY: 26, maxY: 37 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 750,
+    gridOffsetX: 0.8,
+    gridOffsetY: 0.5,
+  },
 ]
 
 export const DUNGEONS: Dungeon[] = [
@@ -221,7 +252,7 @@ export const DUNGEONS: Dungeon[] = [
   { id: 37, name: 'Sousouricière du Rat Noir', level: 110, coord: { x: -25, y: 39 } }, //entre egout
   { id: 38, name: 'Goulet du Rasboul', level: 110, coord: { x: -51, y: 9 } },
   { id: 39, name: 'Bibliothèque du Maître Corbac', level: 110, coord: { x: -15, y: -62 } },
-  { id: 40, name: 'Garde-manger du Rat Blanc', level: 110, coord: { x: -33, y: -53 } },
+  //{ id: 40, name: 'Garde-manger du Rat Blanc', level: 110, coord: { x: -33, y: -53 } },
   { id: 41, name: 'Bambusaie de Damadrya', level: 110, coord: { x: 26, y: -30 } },
   
   // Niveau 120
@@ -301,4 +332,11 @@ export const DUNGEONS: Dungeon[] = [
   { id: 83, name: 'Ring du Capitaine Ekarlatte', level: 130, coord: { x: 6, y: 3 }, mapId: 'srambad' },
   { id: 83, name: 'Cave du Toxoliath', level: 180, coord: { x: 8, y: 8 }, mapId: 'srambad' },
   { id: 83, name: 'Trône de la Cour Sombre', level: 200, coord: { x: 8, y: -4 }, mapId: 'srambad' },
+
+  //canaux-mephitiques
+  { id: 40, name: 'Garde-manger du Rat Blanc', level: 110, coord: { x: -34, y: -59 }, mapId: 'canaux-mephitiques' },
+
+  //caverne-des-fungus
+  { id: 67, name: 'Temple du Grand Ougah', level: 180, coord: { x: -9, y: 29 }, mapId: 'caverne-des-fungus' },
+
 ]
