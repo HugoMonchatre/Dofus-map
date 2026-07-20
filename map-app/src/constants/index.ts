@@ -9,6 +9,11 @@ import {
   ECAFLIPUS_ZONES,
   CAUCHEMAR_ZONES,
   CANAUX_MEPHITIQUES_ZONES,
+  CAVERNE_DES_FUNGUS_ZONES,
+  CROCUZKO_ZONES,
+  SANCTUAIRE_DRAGOEUFS_ZONES,
+  EPAVES_SILENCIEUSES_ZONES,
+  PROFONDEUR_DE_SUFOKIA_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -192,6 +197,61 @@ export const GAME_MAPS: GameMap[] = [
     canvasHeight: 750,
     gridOffsetX: 0.8,
     gridOffsetY: 0.5,
+    zones: CAVERNE_DES_FUNGUS_ZONES,
+  },
+  {
+    id: 'crocuzko',
+    name: 'Crocuzko',
+    image: '/Crocuzko.png',
+    gridCols: 12,
+    gridRows: 15,
+    worldBounds: { minX: -89, maxX: -78, minY: -23, maxY: -9 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 850,
+    zones: CROCUZKO_ZONES,
+  },
+  {
+    id: 'sanctuaire-des-dragoeufs',
+    name: 'Sanctuaire des Dragoeufs',
+    image: '/Sanctuaire-des-Dragoeufs.png',
+    gridCols: 10,
+    gridRows: 12,
+    worldBounds: { minX: -9, maxX: 1, minY: 20, maxY: 32 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 850,
+    gridOffsetX: 0.5,
+    gridOffsetY: 0.5,
+    zones: SANCTUAIRE_DRAGOEUFS_ZONES,
+  },
+  {
+    id: 'epaves-silencieuses',
+    name: 'Épaves Silencieuses',
+    image: '/épave-Silencieuses.png',
+    gridCols: 22,
+    gridRows: 14,
+    worldBounds: { minX: -56, maxX: -34, minY: -88, maxY: -75 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 520,
+    zones: EPAVES_SILENCIEUSES_ZONES,
+  },
+  {
+    id: 'profondeur-de-sufokia',
+    name: 'Profondeur de Sufokia',
+    image: '/Profondeur-de-Sufokia.png',
+    gridCols: 22,
+    gridRows: 14,
+    worldBounds: { minX: 12, maxX: 33, minY: 24, maxY: 37 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 520,
+    zones: PROFONDEUR_DE_SUFOKIA_ZONES,
   },
 ]
 
@@ -338,5 +398,19 @@ export const DUNGEONS: Dungeon[] = [
 
   //caverne-des-fungus
   { id: 67, name: 'Temple du Grand Ougah', level: 180, coord: { x: -9, y: 29 }, mapId: 'caverne-des-fungus' },
+
+  //crocuzko
+  { id: 45, name: 'Sanctuaire de Torkélonia', level: 200, coord: { x: -84, y: -16 }, mapId: 'crocuzko' },
+
+  //sanctuaire-des-dragoeufs
+  { id: 45, name: 'Antre de Crocabulia', level: 120, coord: { x: -2, y: 25 }, mapId: 'sanctuaire-des-dragoeufs' },
+
+  //epaves-silencieuses
+  { id: 85, name: 'Tour de Bethel', level: 200, coord: { x: -48, y: -82 }, mapId: 'epaves-silencieuses' },
+
+  //profondeur-de-sufokia
+  { id: 86, name: 'Palais de Dantinéa', level: 200, coord: { x: 19, y: 26 }, mapId: 'profondeur-de-sufokia' },
+  { id: 86, name: 'Vaisseau de Capitaine Meno', level: 200, coord: { x: 24, y: 27 }, mapId: 'profondeur-de-sufokia' },
+  { id: 86, name: 'Temple de Koutoulou', level: 200, coord: { x: 27, y: 26 }, mapId: 'profondeur-de-sufokia' },
 
 ]

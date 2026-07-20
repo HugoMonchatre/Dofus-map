@@ -632,3 +632,227 @@ export const CAUCHEMAR_ZONES: Zone[] = [
     ],
   },
 ]
+
+// Zones de la Caverne des Fungus
+export const CAVERNE_DES_FUNGUS_ZONES: Zone[] = []
+
+// Zones de Crocuzko
+export const CROCUZKO_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Archipel des Écailles (Crocuzko)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -85, y: -18 },
+      { x: -82, y: -18 },
+      { x: -81, y: -17 },
+      { x: -81, y: -16 },
+      { x: -82, y: -15 },
+      { x: -82, y: -14 },
+      { x: -86, y: -14 },
+      { x: -85, y: -15 },
+      { x: -86, y: -16 },
+      { x: -86, y: -17 },
+      { x: -85, y: -18 },
+
+    ],
+    isolatedCells: [
+      { x: -80, y: -12 },  // cellule isolée
+      { x: -80, y: -11 },  // cellule isolée
+      { x: -79, y: -11 },  // cellule isolée
+      { x: -84, y: -13 },  // cellule isolée
+    ],
+  },
+]
+
+// Zones du Sanctuaire des Dragoeufs
+export const SANCTUAIRE_DRAGOEUFS_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Amakna (Sanctuaire des Dragoeufs)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -6, y: 24 },
+      { x: -2, y: 24 },
+      { x: -2, y: 28 },
+      { x: -6, y: 28 },
+    ],
+  },
+]
+
+// Zones des Épaves Silencieuses
+export const EPAVES_SILENCIEUSES_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Île de Frigost (Épaves Silencieuses)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -48, y: -84 },
+      { x: -47, y: -84 },
+      { x: -46, y: -83 },
+      { x: -45, y: -82 },
+      { x: -45, y: -80 },
+      { x: -46, y: -80 },
+      { x: -47, y: -79 },
+      { x: -48, y: -78 },
+      { x: -48, y: -80 },
+      { x: -49, y: -80 },
+      { x: -49, y: -83 },
+    ],
+    isolatedCells: [
+      { x: -50, y: -83 },
+  // cellule isolée
+    ],
+  },
+]
+
+// Zones de la Profondeur de Sufokia
+export const PROFONDEUR_DE_SUFOKIA_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Domaine des Trithons)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 19, y: 26 },
+      { x: 21, y: 26 },
+      { x: 21, y: 28 },
+      { x: 19, y: 28 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Ville submergée)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 22, y: 26 },
+      { x: 24, y: 26 },
+      { x: 24, y: 28 },
+      { x: 22, y: 28 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Plateau de R\'Lyugluglu)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 25, y: 26 },
+      { x: 27, y: 26 },
+      { x: 27, y: 28 },
+      { x: 25, y: 28 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Faille des Trithons)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 19, y: 29 },
+      { x: 21, y: 29 },
+      { x: 21, y: 31 },
+      { x: 19, y: 31 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Ancienne Sufokia)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 22, y: 29 },
+      { x: 24, y: 29 },
+      { x: 24, y: 31 },
+      { x: 22, y: 31 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Fosse de R\'Lyugluglu)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 25, y: 29 },
+      { x: 27, y: 29 },
+      { x: 27, y: 31 },
+      { x: 25, y: 31 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Tréfonds des Trithons)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 19, y: 32 },
+      { x: 21, y: 32 },
+      { x: 21, y: 34 },
+      { x: 19, y: 34 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Vestiges engloutis)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 22, y: 32 },
+      { x: 24, y: 32 },
+      { x: 24, y: 34 },
+      { x: 22, y: 34 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Abîme de R\'Lyugluglu)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 25, y: 32 },
+      { x: 27, y: 32 },
+      { x: 27, y: 34 },
+      { x: 25, y: 34 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Palais de Dantinéa)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+
+    ],
+    isolatedCells: [
+      { x: 19, y: 26 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Vaisseau du Capitaine Meno)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+
+    ],
+    isolatedCells: [
+      { x: 24, y: 27 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Profondeurs de Sufokia (Temple de Koutoulou)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+
+    ],
+    isolatedCells: [
+      { x: 27, y: 26 },  // cellule isolée
+    ],
+  },
+]

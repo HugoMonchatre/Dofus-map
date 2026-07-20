@@ -7,6 +7,9 @@ import {
   type GameMap,
 } from '../constants'
 
+// Marge de sécurité contre les erreurs d'arrondi flottant (ex: 6.999999999999999 au lieu de 7)
+const GRID_EPSILON = 1e-9
+
 type ShapePoint = { x: number; y: number }
 
 // Calcule l'ensemble des cellules couvertes par une forme (case unique, ligne à 2 points, ou polygone à 3+ points)
@@ -261,8 +264,8 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
           // Convertir en coordonnées canvas
           const imageCoord = worldToCanvas({ x, y }, imgW, imgH, gameMap.worldBounds)
-          const cellX = Math.floor((imageCoord.x - gridOffsetPxX) / gridStepX) * gridStepX + gridOffsetPxX
-          const cellY = Math.floor((imageCoord.y - gridOffsetPxY) / gridStepY) * gridStepY + gridOffsetPxY
+          const cellX = Math.floor((imageCoord.x - gridOffsetPxX) / gridStepX + GRID_EPSILON) * gridStepX + gridOffsetPxX
+          const cellY = Math.floor((imageCoord.y - gridOffsetPxY) / gridStepY + GRID_EPSILON) * gridStepY + gridOffsetPxY
 
           const screenX = (cellX - cameraX) * scaleX
           const screenY = (cellY - cameraY) * scaleY
@@ -335,8 +338,8 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
     filteredDungeons.forEach((dungeon) => {
       const imageCoord = worldToCanvas(dungeon.coord, imgW, imgH, gameMap.worldBounds)
-      const cellX = Math.floor((imageCoord.x - gridOffsetPxX) / gridStepX) * gridStepX + gridOffsetPxX
-      const cellY = Math.floor((imageCoord.y - gridOffsetPxY) / gridStepY) * gridStepY + gridOffsetPxY
+      const cellX = Math.floor((imageCoord.x - gridOffsetPxX) / gridStepX + GRID_EPSILON) * gridStepX + gridOffsetPxX
+      const cellY = Math.floor((imageCoord.y - gridOffsetPxY) / gridStepY + GRID_EPSILON) * gridStepY + gridOffsetPxY
 
       const iconWidth = gridStepX * DUNGEON_ICON_SIZE
       const iconHeight = gridStepY * DUNGEON_ICON_SIZE
@@ -464,8 +467,8 @@ export const MapCanvas: FC<MapCanvasProps> = ({
     })
 
     if (mouseImage) {
-      const cellX = Math.floor((mouseImage.x - gridOffsetPxX) / gridStepX) * gridStepX + gridOffsetPxX
-      const cellY = Math.floor((mouseImage.y - gridOffsetPxY) / gridStepY) * gridStepY + gridOffsetPxY
+      const cellX = Math.floor((mouseImage.x - gridOffsetPxX) / gridStepX + GRID_EPSILON) * gridStepX + gridOffsetPxX
+      const cellY = Math.floor((mouseImage.y - gridOffsetPxY) / gridStepY + GRID_EPSILON) * gridStepY + gridOffsetPxY
       const screenX = (cellX - cameraX) * scaleX
       const screenY = (cellY - cameraY) * scaleY
       const cellW = gridStepX * scaleX

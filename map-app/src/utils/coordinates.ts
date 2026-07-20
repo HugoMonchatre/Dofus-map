@@ -1,5 +1,8 @@
 import type { Coordinates, CanvasCoordinates, Dungeon } from '../types'
 
+// Marge de sécurité contre les erreurs d'arrondi flottant (ex: 6.999999999999999 au lieu de 7)
+const GRID_EPSILON = 1e-9
+
 interface WorldBounds {
   minX: number
   maxX: number
@@ -41,8 +44,8 @@ export const canvasToWorld = (
   // les coordonnées affichées/comparées aux données restent dans leur numérotation naturelle.
   const compensationX = gridOffsetX > 0 ? 1 : 0
   const compensationY = gridOffsetY > 0 ? 1 : 0
-  const cellX = Math.floor((canvasCoords.x - offsetX) / stepX) + compensationX
-  const cellY = Math.floor((canvasCoords.y - offsetY) / stepY) + compensationY
+  const cellX = Math.floor((canvasCoords.x - offsetX) / stepX + GRID_EPSILON) + compensationX
+  const cellY = Math.floor((canvasCoords.y - offsetY) / stepY + GRID_EPSILON) + compensationY
   return { x: cellX + worldBounds.minX, y: cellY + worldBounds.minY }
 }
 
@@ -66,8 +69,8 @@ export const findDungeonAt = (
 
   return dungeons.find((dungeon) => {
     const imageCoord = worldToCanvas(dungeon.coord, imgW, imgH, worldBounds)
-    const cellX = Math.floor((imageCoord.x - offsetX) / gridStepX) * gridStepX + offsetX
-    const cellY = Math.floor((imageCoord.y - offsetY) / gridStepY) * gridStepY + offsetY
+    const cellX = Math.floor((imageCoord.x - offsetX) / gridStepX + GRID_EPSILON) * gridStepX + offsetX
+    const cellY = Math.floor((imageCoord.y - offsetY) / gridStepY + GRID_EPSILON) * gridStepY + offsetY
     const iconWidth = gridStepX * dungeonIconSize
     const iconHeight = gridStepY * dungeonIconSize
 
