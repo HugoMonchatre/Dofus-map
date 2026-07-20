@@ -856,3 +856,53 @@ export const PROFONDEUR_DE_SUFOKIA_ZONES: Zone[] = [
     ],
   },
 ]
+
+// Zones de l'Île de Pwak
+export const ILE_DE_PWAK_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Île de Pwâk (Carrière Chocolatée)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -4, y: -7 },
+      { x: -3, y: -6 },
+      { x: -3, y: -4 },
+      { x: -2, y: -3 },
+      { x: -2, y: -1 },
+      { x: -3, y: -1 },
+      { x: -4, y: -2 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Île de Pwâk (Jardin à la Crème)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -1, y: -7 },
+      { x: 0, y: -7 },
+      { x: 0, y: -2 },
+      { x: -1, y: -1 },
+      { x: -1, y: -3 },
+      { x: -2, y: -4 },
+      { x: -2, y: -5 },
+      { x: -1, y: -6 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Île de Pwâk (Laboratoire des Chocomanciens)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -2, y: -11 },
+      { x: -1, y: -10 },
+      { x: -1, y: -8 },
+      { x: -2, y: -7 },
+      { x: -2, y: -6 },
+      { x: -3, y: -7 },
+      { x: -3, y: -10 },
+    ],
+  },
+]

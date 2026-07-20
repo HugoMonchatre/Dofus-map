@@ -14,6 +14,7 @@ import {
   SANCTUAIRE_DRAGOEUFS_ZONES,
   EPAVES_SILENCIEUSES_ZONES,
   PROFONDEUR_DE_SUFOKIA_ZONES,
+  ILE_DE_PWAK_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -253,6 +254,21 @@ export const GAME_MAPS: GameMap[] = [
     canvasHeight: 520,
     zones: PROFONDEUR_DE_SUFOKIA_ZONES,
   },
+  {
+    id: 'ile-de-pwak',
+    name: 'Île de Pwak',
+    image: '/Île-de-Pwâk.png',
+    gridCols: 12,
+    gridRows: 13,
+    worldBounds: { minX: -8, maxX: 4, minY: -13, maxY: 0 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 790,
+    gridOffsetX: 0.5,
+    gridOffsetY: 0.5,
+    zones: ILE_DE_PWAK_ZONES,
+  },
 ]
 
 export const DUNGEONS: Dungeon[] = [
@@ -412,5 +428,10 @@ export const DUNGEONS: Dungeon[] = [
   { id: 86, name: 'Palais de Dantinéa', level: 200, coord: { x: 19, y: 26 }, mapId: 'profondeur-de-sufokia' },
   { id: 86, name: 'Vaisseau de Capitaine Meno', level: 200, coord: { x: 24, y: 27 }, mapId: 'profondeur-de-sufokia' },
   { id: 86, name: 'Temple de Koutoulou', level: 200, coord: { x: 27, y: 26 }, mapId: 'profondeur-de-sufokia' },
+
+  //ile-de-pwak
+  { id: 87, name: 'Fonderie des Waddicts', level: 60, coord: { x: -3, y: -4 }, mapId: 'ile-de-pwak' },
+  { id: 87, name: 'Croquanterie', level: 130, coord: { x: -1, y: -7 }, mapId: 'ile-de-pwak' },
+  { id: 87, name: 'Temple du dieu Kao', level: 200, coord: { x: -1, y: -10 }, mapId: 'ile-de-pwak' },
 
 ]
