@@ -906,3 +906,34 @@ export const ILE_DE_PWAK_ZONES: Zone[] = [
     ],
   },
 ]
+
+// Zones des Entrailles de Brâkmar
+export const ENTRAILLES_DE_BRAKMAR_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Brâkmar (Entrailles de Brâkmar)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -25, y: 34 },
+      { x: -23, y: 34 },
+      { x: -23, y: 35 },
+      { x: -22, y: 36 },
+      { x: -21, y: 36 },
+      { x: -21, y: 37 },
+      { x: -22, y: 37 },
+      { x: -23, y: 38 },
+      { x: -27, y: 38 },
+      { x: -27, y: 35 },
+      { x: -26, y: 35 },
+    ],
+    isolatedCells: [
+      { x: -25, y: 39 },  // cellule isolée
+      { x: -28, y: 37 },  // cellule isolée
+    ],
+    excludedCells: [
+      [{ x: -25, y: 35 }, { x: -24, y: 35 }],  // ligne du haut, sans -26,35 (pleine)
+      [{ x: -26, y: 36 }, { x: -24, y: 36 }, { x: -24, y: 37 }, { x: -26, y: 37 }],  // reste du carré
+    ],
+  },
+]

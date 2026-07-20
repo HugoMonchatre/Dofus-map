@@ -15,6 +15,7 @@ import {
   EPAVES_SILENCIEUSES_ZONES,
   PROFONDEUR_DE_SUFOKIA_ZONES,
   ILE_DE_PWAK_ZONES,
+  ENTRAILLES_DE_BRAKMAR_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -259,8 +260,8 @@ export const GAME_MAPS: GameMap[] = [
     name: 'Île de Pwak',
     image: '/Île-de-Pwâk.png',
     gridCols: 12,
-    gridRows: 13,
-    worldBounds: { minX: -8, maxX: 4, minY: -13, maxY: 0 },
+    gridRows: 14,
+    worldBounds: { minX: -8, maxX: 4, minY: -13, maxY: 1 },
     minZoom: 1,
     maxZoom: 2,
     canvasWidth: 1000,
@@ -268,6 +269,19 @@ export const GAME_MAPS: GameMap[] = [
     gridOffsetX: 0.5,
     gridOffsetY: 0.5,
     zones: ILE_DE_PWAK_ZONES,
+  },
+  {
+    id: 'entrailles-de-brakmar',
+    name: 'Entrailles de Brâkmar',
+    image: '/Entrailles-de-Brâkmar.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -29, maxX: -19, minY: 31, maxY: 42 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 750,
+    zones: ENTRAILLES_DE_BRAKMAR_ZONES,
   },
 ]
 
@@ -434,4 +448,6 @@ export const DUNGEONS: Dungeon[] = [
   { id: 87, name: 'Croquanterie', level: 130, coord: { x: -1, y: -7 }, mapId: 'ile-de-pwak' },
   { id: 87, name: 'Temple du dieu Kao', level: 200, coord: { x: -1, y: -10 }, mapId: 'ile-de-pwak' },
 
+  //entrailles-de-brakmar
+  { id: 37, name: 'Sousouricière du Rat Noir', level: 110, coord: { x: -28, y: 37 }, mapId: 'entrailles-de-brakmar' }, //entre egout
 ]
