@@ -16,6 +16,7 @@ import {
   PROFONDEUR_DE_SUFOKIA_ZONES,
   ILE_DE_PWAK_ZONES,
   ENTRAILLES_DE_BRAKMAR_ZONES,
+  GALERIE_D_EREBORIA_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -283,6 +284,19 @@ export const GAME_MAPS: GameMap[] = [
     canvasHeight: 750,
     zones: ENTRAILLES_DE_BRAKMAR_ZONES,
   },
+  {
+    id: 'galerie-d-ereboria',
+    name: "Galerie d'Ereboria",
+    image: "/Galerie-d'Ereboria.png",
+    gridCols: 11,
+    gridRows: 16,
+    worldBounds: { minX: 27, maxX: 37, minY: -74, maxY: -59 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 900,
+    canvasHeight: 920,
+    zones: GALERIE_D_EREBORIA_ZONES,
+  },
 ]
 
 export const DUNGEONS: Dungeon[] = [
@@ -450,4 +464,7 @@ export const DUNGEONS: Dungeon[] = [
 
   //entrailles-de-brakmar
   { id: 37, name: 'Sousouricière du Rat Noir', level: 110, coord: { x: -28, y: 37 }, mapId: 'entrailles-de-brakmar' }, //entre egout
+
+  //galerie-d-ereboria
+  { id: 89, name: "Bastion des Marteaux-Aigris", level: 200, coord: { x: 32, y: -64 }, mapId: 'galerie-d-ereboria' },
 ]

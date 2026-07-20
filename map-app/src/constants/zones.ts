@@ -937,3 +937,36 @@ export const ENTRAILLES_DE_BRAKMAR_ZONES: Zone[] = [
     ],
   },
 ]
+
+// Zones de la Galerie d'Ereboria
+export const GALERIE_D_EREBORIA_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Archipel de Valonia (Galerie d\'Ereboria)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 32, y: -72 },
+      { x: 34, y: -72 },
+      { x: 33, y: -71 },
+      { x: 33, y: -70 },
+      { x: 34, y: -69 },
+      { x: 35, y: -68 },
+      { x: 35, y: -67 },
+      { x: 34, y: -66 },
+      { x: 34, y: -62 },
+      { x: 31, y: -62 },
+      { x: 30, y: -63 },
+      { x: 31, y: -64 },
+      { x: 32, y: -65 },
+      { x: 33, y: -65 },
+      { x: 34, y: -66 },
+      { x: 33, y: -67 },
+      { x: 32, y: -68 },
+    ],
+    isolatedCells: [
+      { x: 31, y: -68 },  // cellule isolée
+      { x: 31, y: -71 },  // cellule isolée
+    ],
+  },
+]
