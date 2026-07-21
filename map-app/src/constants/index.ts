@@ -17,6 +17,12 @@ import {
   ILE_DE_PWAK_ZONES,
   ENTRAILLES_DE_BRAKMAR_ZONES,
   GALERIE_D_EREBORIA_ZONES,
+  PYRAMIDE_MAUDITE_ZONES,
+  SERVITUDE_ZONES,
+  MISERE_ZONES,
+  CORROMPU_ZONES,
+  GUERRE_ZONES,
+  OMBRE_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -297,6 +303,87 @@ export const GAME_MAPS: GameMap[] = [
     canvasHeight: 920,
     zones: GALERIE_D_EREBORIA_ZONES,
   },
+  {
+    id: 'pyramide-maudite',
+    name: 'Pyramide Maudite',
+    image: '/Pyramide-Maudite.png',
+    gridCols: 9,
+    gridRows: 11,
+    worldBounds: { minX: 7, maxX: 15, minY: -80, maxY: -69 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 670,
+    gridOffsetY: 0.2,
+    zones: PYRAMIDE_MAUDITE_ZONES,
+  },
+  {
+    id: 'servitude',
+    name: 'Servitude',
+    image: '/Servitude.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -3, maxX: 7, minY: -7, maxY: 4 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 750,
+    zones: SERVITUDE_ZONES,
+  },
+  {
+    id: 'misere',
+    name: 'Misère',
+    image: '/Misère.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -3, maxX: 7, minY: -4, maxY: 7 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 757,
+    zones: MISERE_ZONES,
+  },
+  {
+    id: 'corrompu',
+    name: 'Corrompu',
+    image: '/Corrompu.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -3, maxX: 7, minY: -4, maxY: 7 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 753,
+    zones: CORROMPU_ZONES,
+  },
+  {
+    id: 'guerre',
+    name: 'Guerre',
+    image: '/Guerre.png',
+    gridCols: 10,
+    gridRows: 11,
+    worldBounds: { minX: -3, maxX: 6, minY: -6, maxY: 4 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 754,
+    zones: GUERRE_ZONES,
+  },
+  {
+    id: 'ombre',
+    name: 'Ombre',
+    image: '/Ombre.png',
+    gridCols: 7,
+    gridRows: 11,
+    worldBounds: { minX: -1, maxX: 6, minY: -1, maxY: 10 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 850,
+    canvasHeight: 1000,
+    gridOffsetX: 0.8,
+    gridOffsetY: 0.5,
+    zones: OMBRE_ZONES,
+  },
 ]
 
 export const DUNGEONS: Dungeon[] = [
@@ -467,4 +554,22 @@ export const DUNGEONS: Dungeon[] = [
 
   //galerie-d-ereboria
   { id: 89, name: "Bastion des Marteaux-Aigris", level: 200, coord: { x: 32, y: -64 }, mapId: 'galerie-d-ereboria' },
+
+  //pyramide-maudite
+  { id: 90, name: 'Chambre de Tal Kasha', level: 200, coord: { x: 12, y: -77 }, mapId: 'pyramide-maudite' },
+
+  //servitude
+  { id: 91, name: 'Fer de la Tyrannie', level: 200, coord: { x: 4, y: -3 }, mapId: 'servitude' },
+
+  //misere
+  { id: 92, name: 'Sente de la Balance', level: 200, coord: { x: 1, y: 0 }, mapId: 'misere' },
+
+  //corrompu
+  { id: 93, name: 'Arbre de mort', level: 200, coord: { x: 4, y: 0 }, mapId: 'corrompu' },
+
+  //guerre
+  { id: 94, name: 'Trône de Sang', level: 200, coord: { x: 4, y: -3 }, mapId: 'guerre' },
+
+  //ombre
+  { id: 95, name: 'Pyramide d\'Ombre', level: 190, coord: { x: 5, y: 9 }, mapId: 'ombre' },
 ]

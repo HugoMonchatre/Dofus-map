@@ -970,3 +970,153 @@ export const GALERIE_D_EREBORIA_ZONES: Zone[] = [
     ],
   },
 ]
+
+// Zones de la Pyramide Maudite
+export const PYRAMIDE_MAUDITE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Saharach (Pyramide Maudite)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 11, y: -77 },
+      { x: 13, y: -77 },
+      { x: 13, y: -76 },
+      { x: 14, y: -75 },
+      { x: 13, y: -74 },
+      { x: 12, y: -75 },
+      { x: 11, y: -74 },
+      { x: 10, y: -75 },
+      { x: 10, y: -76 },
+    ],
+    isolatedCells: [
+      { x: 8, y: -78 },  // cellule isolée
+      { x: 9, y: -77 },  // cellule isolée
+      { x: 9, y: -74 },  // cellule isolée
+      { x: 8, y: -76 },  // cellule isolée
+      { x: 8, y: -75 },  // cellule isolée
+      { x: 10, y: -73 },  // cellule isolée
+      { x: 11, y: -72 },  // cellule isolée
+      { x: 12, y: -73 },  // cellule isolée
+      { x: 12, y: -71 },  // cellule isolée
+      { x: 13, y: -72 },  // cellule isolée
+      { x: 14, y: -72 },  // cellule isolée
+      { x: 14, y: -73 },  // cellule isolée
+    ],
+  },
+]
+
+// Zones de Servitude
+export const SERVITUDE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Dimensions des Cavaliers (Galère de Servitude)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 2, y: -3 },
+      { x: 4, y: -3 },
+      { x: 4, y: -1 },
+      { x: 3, y: 0 },
+      { x: 0, y: 0 },
+      { x: 1, y: -1 },
+      { x: 1, y: -2 },
+    ],
+  }
+]
+
+// Zones de Misère
+export const MISERE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Dimensions des Cavaliers (Désert de Misère)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -1, y: 0 },
+      { x: 4, y: 0 },
+      { x: 4, y: 3 },
+      { x: -1, y: 3 },
+    ],
+    isolatedCells: [
+      { x: 0, y: -1 },  // cellule isolée
+      { x: 6, y: 0 },  // cellule isolée
+      { x: 3, y: 4 },  // cellule isolée
+    ],
+    excludedCells: [
+      [{ x: -1, y: 1 }],  // case vide au milieu
+      [{ x: 1, y: 3 }],  // case vide au milieu
+    ],
+  },
+]
+
+// Zones de Corrompu
+export const CORROMPU_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Dimensions des Cavaliers (Royaume Corrompu)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 0, y: 0 },
+      { x: 4, y: 0 },
+      { x: 4, y: 3 },
+      { x: 0, y: 3 },
+
+    ],
+    isolatedCells: [
+      { x: -1, y: 0 },  // cellule isolée
+      { x: -1, y: 2 },  // cellule isolée
+    ],
+  },
+]
+
+// Zones de Guerre
+export const GUERRE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Dimensions des Cavaliers (Blessure de Guerre)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 0, y: 0 },
+      { x: 1, y: -1 },
+      { x: 2, y: -2 },
+      { x: 3, y: -2 },
+      { x: 4, y: -3 },
+      { x: 4, y: 0 },
+      { x: 3, y: 1 },
+      { x: 1, y: 1 },
+    ],
+  },
+]
+
+// Zones d'Ombre
+export const OMBRE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Dimensions des Cavaliers (Royaume Corrompu)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+
+    ],
+    isolatedCells: [
+      { x: 5, y: 9 },  // cellule isolée
+      { x: 4, y: 9 },  // cellule isolée
+      { x: 3, y: 8 },  // cellule isolée
+      { x: 3, y: 7 },  // cellule isolée
+      { x: 2, y: 6 },  // cellule isolée
+      { x: 1, y: 6 },  // cellule isolée
+      { x: 1, y: 5 },  // cellule isolée
+      { x: 1, y: 4 },  // cellule isolée
+      { x: 2, y: 4 },  // cellule isolée
+      { x: 3, y: 4 },  // cellule isolée
+      { x: 0, y: 4 },  // cellule isolée
+      { x: 0, y: 3 },  // cellule isolée
+      { x: 1, y: 2 },  // cellule isolée
+      { x: 2, y: 2 },  // cellule isolée
+      { x: 3, y: 1 },  // cellule isolée
+    ],
+  },
+]
