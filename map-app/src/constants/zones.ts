@@ -214,6 +214,139 @@ export const MAIN_WORLD_ZONES: Zone[] = [
       { x: -15, y: -45 },
     ],
   },
+  {
+    id: 'exemple-zone',
+    name: 'Île du Minotoror (Île du Minotoror)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -43, y: -19 },
+      { x: -40, y: -19 },
+      { x: -40, y: -16 },
+      { x: -43, y: -16 },
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île d\'Otomaï (Village côtier)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -47, y: 15 },
+      { x: -45, y: 15 },
+      { x: -45, y: 21 },
+      { x: -46, y: 22 },
+      { x: -48, y: 22 },
+      { x: -48, y: 21 },
+    ],
+    isolatedCells: [
+      { x: -44, y: 21 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île d\'Otomaï (Île des naufragés)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -45, y: -2 },
+      { x: -42, y: -2 },
+      { x: -42, y: 1 },
+      { x: -43, y: 2 },
+      { x: -44, y: 2 },
+      { x: -45, y: 1 },
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île d\'Otomaï (Île des naufragés)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -62, y: -10 },
+      { x: -59, y: -10 },
+      { x: -59, y: -7 },
+      { x: -62, y: -7 },
+    ],
+    isolatedCells: [
+      { x: -59, y: -6 },  // cellule isolée
+    ],
+    excludedCells: [
+      [{ x: -61, y: -9 },{ x: -60, y: -9 },],
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Îlots de la mer Kantil (Îlots Estitch)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -47, y: -70 },
+      { x: -45, y: -70 },
+      { x: -45, y: -68 },
+      { x: -47, y: -68 },
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île de Sakaï (Forêt enneigée)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -52, y: -45 },
+      { x: -50, y: -45 },
+      { x: -50, y: -44 },
+      { x: -51, y: -43 },
+      { x: -51, y: -42 },
+      { x: -53, y: -42 },
+      { x: -53, y: -44 },
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île de Sakaï (Plaine de Sakaï)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -55, y: -42 },
+      { x: -54, y: -42 },
+      { x: -54, y: -39 },
+      { x: -55, y: -40 },
+    ],
+    isolatedCells: [
+      { x: -53, y: -41 },  // cellule isolée
+      { x: -52, y: -41 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île de Sakaï (Port de Sakaï)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+    ],
+    isolatedCells: [
+      { x: -53, y: -40 },  // cellule isolée
+      { x: -52, y: -39 },  // cellule isolée
+      { x: -51, y: -38 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'exemple-zone',
+    name: 'Île de Frigost (Roc des Salbatroces)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -83, y: -61 },
+      { x: -83, y: -58 },
+      { x: -84, y: -57 },
+      { x: -84, y: -60 },
+    ],
+    isolatedCells: [
+      { x: -85, y: -59 },  // cellule isolée
+      { x: -82, y: -59 },  // cellule isolée
+    ],
+  },
 ]
 
 // Zones d'Incarnam
@@ -591,7 +724,93 @@ export const XELORIUM_ZONES: Zone[] = [
 ]
 
 // Zones de la Dimension Ecaflipus
-export const ECAFLIPUS_ZONES: Zone[] = []
+export const ECAFLIPUS_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Ecaflipus (Lande Poilue)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 0, y: 0 },
+      { x: 4, y: 0 },
+      { x: 4, y: 2 },
+      { x: 3, y: 3 },
+      { x: 1, y: 3 },
+      { x: 1, y: 2 },
+      { x: 0, y: 1 },
+
+    ],
+    isolatedCells: [
+      { x: 5, y: 2 },  // cellule isolée
+      { x: 5, y: -1 },  // cellule isolée
+      { x: 6, y: -2 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Ecaflipus (Pierres de L\'élévation)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -2, y: -7 },
+      { x: -1, y: -8 },
+      { x: 0, y: -7 },
+      { x: 0, y: -6 },
+      { x: -1, y: -6 },
+      { x: -2, y: -5 },
+      { x: -3, y: -6 },
+    ],
+    extraShapes: [
+      //[{ x: 5, y: 5 }, { x: 7, y: 5 }, { x: 7, y: 7 }, { x: 5, y: 7 }],  // mini-zone rectangulaire
+      [{ x: -9, y: -10 }, { x: -6, y: -10 }],  // mini-zone en ligne
+      [{ x: -6, y: -9 }, { x: -5, y: -9 }],  // mini-zone en ligne
+      [{ x: -4, y: -8 }, { x: -3, y: -8 }],  // mini-zone en ligne
+      [{ x: 1, y: -8 }, { x: 2, y: -8 }],  // mini-zone en ligne
+      [{ x: 0, y: -4 }, { x: 0, y: -3 }],  // mini-zone en ligne
+      [{ x: 1, y: -3 }, { x: 1, y: -1 }],  // mini-zone en ligne
+      //[{ x: 15, y: 15 }],  // mini-zone d'une seule case
+    ],
+    isolatedCells: [
+      { x: -7, y: -11 },  // cellule isolée
+      { x: 1, y: -5 },  // cellule isolée
+      { x: -1, y: -4 },  // cellule isolée
+      { x: 2, y: -2 },  // cellule isolée
+      { x: 3, y: -9 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Ecaflipus (Miausolée du Pounicheur)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+    ],
+    isolatedCells: [
+      { x: 3, y: -9 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Ecaflipus (Temple de Kerubim)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -11, y: -22 },
+      { x: -9, y: -22 },
+      { x: -9, y: -19 },
+      { x: -10, y: -19 },
+      { x: -11, y: -18 },
+      { x: -13, y: -18 },
+      { x: -13, y: -19 },
+      { x: -12, y: -20 },
+      { x: -12, y: -21 },
+    ],
+    isolatedCells: [
+      { x: -13, y: -21 },  // cellule isolée
+      { x: -10, y: -11 },  // cellule isolée
+    ],
+  },
+]
 
 // Zones des Canaux Méphitiques
 export const CANAUX_MEPHITIQUES_ZONES: Zone[] = [
@@ -1117,6 +1336,176 @@ export const OMBRE_ZONES: Zone[] = [
       { x: 1, y: 2 },  // cellule isolée
       { x: 2, y: 2 },  // cellule isolée
       { x: 3, y: 1 },  // cellule isolée
+    ],
+  },
+]
+
+// Zones de Wukin-et-Wukang
+export const WUKIN_ET_WUKANG_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Wukin et Wukang (Royaume d\'encre',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -2, y: -5 },
+      { x: 0, y: -5 },
+      { x: 1, y: -4 },
+      { x: 1, y: -1 },
+      { x: -2, y: -1 },
+      { x: -3, y: 0 },
+      { x: -3, y: 2 },
+      { x: -4, y: 1 },
+      { x: -4, y: -2 },
+      { x: -3, y: -3 },
+      { x: -2, y: -4 },
+    ],
+    isolatedCells: [
+      { x: -3, y: 3 },  // cellule isolée
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Wukin et Wukang (Royaume de papier',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 2, y: -3 },
+      { x: 3, y: -2 },
+      { x: 3, y: 1 },
+      { x: 2, y: 2 },
+      { x: 1, y: 3 },
+      { x: 1, y: 4 },
+      { x: -1, y: 4 },
+      { x: -2, y: 3 },
+      { x: -2, y: 0 },
+      { x: 2, y: 0 },
+    ],
+    isolatedCells: [
+      { x: 2, y: -4 },  // cellule isolée
+    ],
+  },
+]
+
+// Zones de la Base Abyssale
+export const BASE_ABYSSALE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Baie de Sufokia (Fouilles sufokienne)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 25, y: 12 },
+      { x: 21, y: 12 },
+      { x: 21, y: 13 },
+    ],
+    isolatedCells: [
+      { x: 21, y: 14 },
+      { x: 22, y: 14 },
+      { x: 22, y: 15 },
+      { x: 23, y: 26 },
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Baie de Sufokia (Salles des Embruns)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 22, y: 17 },
+      { x: 23, y: 18 },
+      { x: 24, y: 19 },
+      { x: 23, y: 20 },
+      { x: 22, y: 21 },
+      { x: 21, y: 20 },
+      { x: 20, y: 19 },
+      { x: 21, y: 18 },
+    ],
+    
+    excludedCells: [
+      [{ x: 22, y: 18 }],  // case vide au milieu
+      [{ x: 21, y: 19 }],  // case vide au milieu
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Baie de Sufokia (Salles des Courants)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 22, y: 23 },
+      { x: 23, y: 24 },
+      { x: 24, y: 25 },
+      { x: 23, y: 26 },
+      { x: 22, y: 27 },
+      { x: 21, y: 26 },
+      { x: 20, y: 25 },
+      { x: 21, y: 24 },
+    ],
+    isolatedCells: [
+      { x: 23, y: 27 },  // cellule isolée
+      { x: 24, y: 26 },  // cellule isolée
+      { x: 23, y: 30 },
+    ],
+    excludedCells: [
+      [{ x: 23, y: 26 }],  // case vide au milieu
+      [{ x: 23, y: 25 }],  // case vide au milieu
+      [{ x: 22, y: 24 }],  // case vide au milieu
+    ],
+  },
+  {
+    id: 'zone-principale',
+    name: 'Baie de Sufokia (Salles des Abîmes)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: 22, y: 29 },
+      { x: 21, y: 30 },
+      { x: 22, y: 31 },
+      { x: 23, y: 31 },
+      { x: 22, y: 32 },
+    ],
+    isolatedCells: [
+      { x: 24, y: 31 },  // cellule isolée
+      { x: 24, y: 32 },  // cellule isolée
+      { x: 23, y: 33 },  // cellule isolée
+      { x: 22, y: 34 },  // cellule isolée
+      { x: 21, y: 33 },  // cellule isolée
+      { x: 20, y: 32 },  // cellule isolée
+    ],
+  },
+]
+
+// Zones du Village de la Canopée
+export const VILLAGE_DE_LA_CANOPEE_ZONES: Zone[] = [
+  {
+    id: 'zone-principale',
+    name: 'Île d\'Otomaï (Village de la Canopée)',
+    color: 'rgba(100, 150, 255, 0.3)',
+    borderColor: 'rgba(100, 150, 255, 0.8)',
+    points: [
+      { x: -57, y: 13 },
+      { x: -49, y: 13 },
+      { x: -49, y: 21 },
+      { x: -57, y: 21 },
+    ],
+    isolatedCells: [
+      { x: -57, y: 11 },  // cellule isolée
+      { x: -57, y: 12 },  // cellule isolée
+      { x: -51, y: 12 },  // cellule isolée
+      { x: -52, y: 23 },  // cellule isolée
+      { x: -52, y: 22 },  // cellule isolée
+      { x: -58, y: 21 },  // cellule isolée
+      { x: -58, y: 18 },  // cellule isolée
+    ],
+    excludedCells: [
+      [{ x: -53, y: 13 },{ x: -53, y: 15 },],
+      [{ x: -57, y: 17 },{ x: -55, y: 17 },],
+      [{ x: -53, y: 19 },{ x: -53, y: 21 },],
+      [{ x: -51, y: 17 },{ x: -49, y: 17 },],
+      [{ x: -51, y: 14 },],
+      [{ x: -51, y: 15 },],
+      [{ x: -50, y: 15 },]
     ],
   },
 ]

@@ -31,12 +31,14 @@ export const canvasToWorld = (
   gridCols?: number,
   gridRows?: number,
   gridOffsetX: number = 0,
-  gridOffsetY: number = 0
+  gridOffsetY: number = 0,
+  gridOffsetOneSidedX: boolean = false,
+  gridOffsetOneSidedY: boolean = false
 ): Coordinates => {
   const cols = gridCols ?? (worldBounds.maxX - worldBounds.minX)
   const rows = gridRows ?? (worldBounds.maxY - worldBounds.minY)
-  const stepX = canvasWidth / cols
-  const stepY = canvasHeight / rows
+  const stepX = canvasWidth / (gridOffsetOneSidedX ? cols - gridOffsetX : cols)
+  const stepY = canvasHeight / (gridOffsetOneSidedY ? rows - gridOffsetY : rows)
   const offsetX = gridOffsetX * stepX
   const offsetY = gridOffsetY * stepY
   // Un décalage fractionnaire (0 < offset < 1) fait toujours atterrir une coordonnée entière
@@ -60,10 +62,12 @@ export const findDungeonAt = (
   gridRows: number = 160,
   worldBounds: WorldBounds = { minX: -94, maxX: 50, minY: -100, maxY: 61 },
   gridOffsetX: number = 0,
-  gridOffsetY: number = 0
+  gridOffsetY: number = 0,
+  gridOffsetOneSidedX: boolean = false,
+  gridOffsetOneSidedY: boolean = false
 ): Dungeon | undefined => {
-  const gridStepX = imgW / gridCols
-  const gridStepY = imgH / gridRows
+  const gridStepX = imgW / (gridOffsetOneSidedX ? gridCols - gridOffsetX : gridCols)
+  const gridStepY = imgH / (gridOffsetOneSidedY ? gridRows - gridOffsetY : gridRows)
   const offsetX = gridOffsetX * gridStepX
   const offsetY = gridOffsetY * gridStepY
 

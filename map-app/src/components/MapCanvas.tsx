@@ -234,8 +234,11 @@ export const MapCanvas: FC<MapCanvasProps> = ({
     const scaleX = width / sourceWidth
     const scaleY = height / sourceHeight
 
-    const gridStepX = imgW / gameMap.gridCols
-    const gridStepY = imgH / gameMap.gridRows
+    // gridOffsetOneSidedX/Y: le pas se calcule sur (gridCols/gridRows - décalage) pour que seule la
+    // première case (gauche/haut) soit une demi-case ; les suivantes, y compris la dernière, restent
+    // pleines et arrivent pile au bord. Sans ce flag, le décalage reste symétrique (les deux bords sont des demi-cases).
+    const gridStepX = imgW / (gameMap.gridOffsetOneSidedX ? gameMap.gridCols - (gameMap.gridOffsetX ?? 0) : gameMap.gridCols)
+    const gridStepY = imgH / (gameMap.gridOffsetOneSidedY ? gameMap.gridRows - (gameMap.gridOffsetY ?? 0) : gameMap.gridRows)
     const gridOffsetPxX = (gameMap.gridOffsetX ?? 0) * gridStepX
     const gridOffsetPxY = (gameMap.gridOffsetY ?? 0) * gridStepY
 
@@ -248,6 +251,13 @@ export const MapCanvas: FC<MapCanvasProps> = ({
         if (zone.isolatedCells) {
           zone.isolatedCells.forEach((cell) => {
             cellsInZone.add(`${cell.x},${cell.y}`)
+          })
+        }
+
+        // Ajouter les mini-zones supplémentaires (même algo que zone.points)
+        if (zone.extraShapes) {
+          zone.extraShapes.forEach((shape) => {
+            getCellsFromShape(shape).forEach((cellKey) => cellsInZone.add(cellKey))
           })
         }
 
@@ -520,6 +530,9 @@ export const MapCanvas: FC<MapCanvasProps> = ({
         // Vérifier d'abord les cellules isolées
         if (zone.isolatedCells?.some((c) => c.x === mx && c.y === my)) return true
 
+        // Vérifier les mini-zones supplémentaires
+        if (zone.extraShapes?.some((shape) => getCellsFromShape(shape).has(`${mx},${my}`))) return true
+
         // Cas spécial: ligne (2 points)
         if (zone.points.length === 2) {
           const p1 = zone.points[0]
@@ -631,7 +644,7 @@ export const MapCanvas: FC<MapCanvasProps> = ({
 
     const imageX = cameraX + mouseX / scaleX
     const imageY = cameraY + mouseY / scaleY
-    setMouseWorld(canvasToWorld({ x: imageX, y: imageY }, imgW, imgH, gameMap.worldBounds, gameMap.gridCols, gameMap.gridRows, gameMap.gridOffsetX, gameMap.gridOffsetY))
+    setMouseWorld(canvasToWorld({ x: imageX, y: imageY }, imgW, imgH, gameMap.worldBounds, gameMap.gridCols, gameMap.gridRows, gameMap.gridOffsetX, gameMap.gridOffsetY, gameMap.gridOffsetOneSidedX, gameMap.gridOffsetOneSidedY))
     setMouseImage({ x: imageX, y: imageY })
 
     if (!isMouseDown || zoom === 1) return
@@ -678,7 +691,7 @@ export const MapCanvas: FC<MapCanvasProps> = ({
     const imageX = cameraX + mouseX / scaleX
     const imageY = cameraY + mouseY / scaleY
 
-    const dungeon = findDungeonAt(imageX, imageY, imgW, imgH, filteredDungeons, DUNGEON_ICON_SIZE, gameMap.gridCols, gameMap.gridRows, gameMap.worldBounds, gameMap.gridOffsetX, gameMap.gridOffsetY)
+    const dungeon = findDungeonAt(imageX, imageY, imgW, imgH, filteredDungeons, DUNGEON_ICON_SIZE, gameMap.gridCols, gameMap.gridRows, gameMap.worldBounds, gameMap.gridOffsetX, gameMap.gridOffsetY, gameMap.gridOffsetOneSidedX, gameMap.gridOffsetOneSidedY)
     if (dungeon) {
       onDungeonClick(dungeon)
     } else {

@@ -23,6 +23,9 @@ import {
   CORROMPU_ZONES,
   GUERRE_ZONES,
   OMBRE_ZONES,
+  WUKIN_ET_WUKANG_ZONES,
+  BASE_ABYSSALE_ZONES,
+  VILLAGE_DE_LA_CANOPEE_ZONES,
 } from './zones'
 
 export interface LevelRange {
@@ -52,6 +55,7 @@ export interface Zone {
   points: { x: number; y: number }[] // Coordonnées du polygone en coordonnées monde
   isolatedCells?: { x: number; y: number }[] // Cellules isolées non reliées au polygone
   excludedCells?: { x: number; y: number }[][] // Trous: formes à exclure (même règles que `points` — 1 point = case, 2 = ligne, 3+ = polygone rempli)
+  extraShapes?: { x: number; y: number }[][] // Mini-zones supplémentaires à ajouter (même règles que `points` — 1 point = case, 2 = ligne, 3+ = polygone rempli)
 }
 
 export interface GameMap {
@@ -73,6 +77,8 @@ export interface GameMap {
   zones?: Zone[] // Zones optionnelles pour chaque map
   gridOffsetX?: number // Décalage visuel des lignes de grille, en fraction de case (0-1). N'affecte QUE le rendu des lignes, pas les coordonnées/zones/donjons
   gridOffsetY?: number // Décalage visuel des lignes de grille, en fraction de case (0-1). N'affecte QUE le rendu des lignes, pas les coordonnées/zones/donjons
+  gridOffsetOneSidedX?: boolean // Si true, seule la colonne de gauche est une demi-case (la droite reste pleine, pile au bord). Sinon (défaut), symétrique (gauche ET droite sont des demi-cases)
+  gridOffsetOneSidedY?: boolean // Si true, seule la ligne du haut est une demi-case (le bas reste plein, pile au bord). Sinon (défaut), symétrique (haut ET bas sont des demi-cases)
 }
 
 export const GAME_MAPS: GameMap[] = [
@@ -80,13 +86,15 @@ export const GAME_MAPS: GameMap[] = [
     id: 'main',
     name: 'Monde des douzes',
     image: '/mapBG.png',
-    gridCols: 142,
-    gridRows: 160,
-    worldBounds: { minX: -93, maxX: 50, minY: -100, maxY: 61 },
+    gridCols: 144,
+    gridRows: 161,
+    worldBounds: { minX: -94, maxX: 50, minY: -100, maxY: 61 },
     minZoom: 1,
     maxZoom: 6,
     canvasWidth: 1200,
     canvasHeight: 1000,
+    gridOffsetX: 0.5,
+    gridOffsetY: 0.5,
     zones: MAIN_WORLD_ZONES,
   },
   {
@@ -157,10 +165,10 @@ export const GAME_MAPS: GameMap[] = [
   {
     id: 'ecaflipus',
     name: 'Dimension Ecaflipus',
-    image: '/ecaflipus.png',
-    gridCols: 50,
-    gridRows: 50,
-    worldBounds: { minX: -20, maxX: 20, minY: -20, maxY: 20 },
+    image: '/Ecaflipus.png',
+    gridCols: 25,
+    gridRows: 37,
+    worldBounds: { minX: -16, maxX: 8, minY: -28, maxY: 8 },
     minZoom: 1,
     maxZoom: 4,
     canvasWidth: 1000,
@@ -384,6 +392,51 @@ export const GAME_MAPS: GameMap[] = [
     gridOffsetY: 0.5,
     zones: OMBRE_ZONES,
   },
+  {
+    id: 'wukin-et-wukang',
+    name: 'Wukin-et-Wukang',
+    image: '/Wukin-et-Wukang.png',
+    gridCols: 11,
+    gridRows: 12,
+    worldBounds: { minX: -6, maxX: 5, minY: -6, maxY: 5 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 746,
+    gridOffsetX: 0.5,
+    gridOffsetY: 0.5,
+    gridOffsetOneSidedY: true,
+    zones: WUKIN_ET_WUKANG_ZONES,
+  },
+  {
+    id: 'base-abyssale',
+    name: 'Base Abyssale',
+    image: '/Base-Abyssale.png',
+    gridCols: 9,
+    gridRows: 27,
+    worldBounds: { minX: 18, maxX: 26, minY: 10, maxY: 36 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 500,
+    canvasHeight: 1000,
+    gridOffsetX: 0.6,
+    gridOffsetOneSidedX: true,
+    zones: BASE_ABYSSALE_ZONES,
+  },
+  {
+    id: 'village-de-la-canopee',
+    name: 'Village de la Canopée',
+    image: '/Village-de-la-Canopée.png',
+    gridCols: 17,
+    gridRows: 19,
+    worldBounds: { minX: -62, maxX: -45, minY: 8, maxY: 26 },
+    minZoom: 1,
+    maxZoom: 2,
+    canvasWidth: 1000,
+    canvasHeight: 787,
+    gridOffsetX: 0.6,
+    zones: VILLAGE_DE_LA_CANOPEE_ZONES,
+  },
 ]
 
 export const DUNGEONS: Dungeon[] = [
@@ -519,6 +572,11 @@ export const DUNGEONS: Dungeon[] = [
   { id: 83, name: 'Horologium de XLII', level: 170, coord: { x: 7, y: -2 }, mapId: 'xelorium' },
   { id: 83, name: 'Œil de Vortex', level: 200, coord: { x: 7, y: -7 }, mapId: 'xelorium' },
 
+  //ecaflipus
+  { id: 83, name: 'Miausolée de Pounicheur', level: 110, coord: { x: 3, y: -9 }, mapId: 'ecaflipus' },
+  { id: 83, name: 'Plateau de Ush', level: 160, coord: { x: 7, y: -3 }, mapId: 'ecaflipus' },
+  { id: 83, name: 'Défi du Chalœil', level: 200, coord: { x: -9, y: -22 }, mapId: 'ecaflipus' },
+
   //srambad
   { id: 83, name: 'Ring du Capitaine Ekarlatte', level: 130, coord: { x: 6, y: 3 }, mapId: 'srambad' },
   { id: 83, name: 'Cave du Toxoliath', level: 180, coord: { x: 8, y: 8 }, mapId: 'srambad' },
@@ -572,4 +630,14 @@ export const DUNGEONS: Dungeon[] = [
 
   //ombre
   { id: 95, name: 'Pyramide d\'Ombre', level: 190, coord: { x: 5, y: 9 }, mapId: 'ombre' },
+
+  //wukin-et-wukang
+  { id: 96, name: 'Mémoire d\'Orukam', level: 200, coord: { x: -3, y: -1 }, mapId: 'wukin-et-wukang' },
+  { id: 96, name: 'Souvenir d\'Imagiro', level: 200, coord: { x: 2, y: 0 }, mapId: 'wukin-et-wukang' },
+
+  //base-abyssale
+  { id: 97, name: 'Aquadôme de Merkator', level: 200, coord: { x: 22, y: 30 }, mapId: 'base-abyssale' },
+
+  //village-de-la-canopee
+  { id: 98, name: 'Village de la Canopée', level: 200, coord: { x: 7, y: 5 }, mapId: 'village-de-la-canopee' },
 ]
